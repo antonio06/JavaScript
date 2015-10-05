@@ -1,0 +1,66 @@
+<DOCTYPE HTML>
+<html>
+    <head>
+        <title>Para practicar</title>
+        <style>
+            #padre{
+                display: block;
+                width: 306px;
+                height: 300px;
+                margin-top: 10px;
+                padding: 0px;
+            }
+            .hijo{
+                width: 100px;
+                height: 100px;
+                border: 1px solid black;
+                display: inline-block;
+                margin: 0px;
+            }
+        </style>
+        <script>
+            // Cuando cargue el documento le asignamos los eventos a los botones
+            window.onload = function(){
+                // Asignamos la funcion pintarDivs al botonPintar en click
+                document.getElementById("botonPintar").onclick = pintarDivs;
+            };
+            //este array lo creamos para contener a todos los hijos y añadimos el color y su posición
+            var arrayDivs = [];
+            //Creamos una función para crear los div hijos
+            function crearDivs() {
+                //solo creamos 9 divs
+                if (arrayDivs.length<9){
+                    //Guardamos en una variable al padre
+                    var padre = document.getElementById("padre");
+                    //Creamos un div
+                    var div = document.createElement("div");
+                    //le ponemos al div creado la clase con el valor 'hijo'
+                    div.setAttribute("class", "hijo");
+                    //añadimos hijo al padre
+                    padre.appendChild(div);
+                    //añadimos el div hijo al array
+                    arrayDivs.push(div);
+                }
+            }
+            
+            function pintarDivs(){
+                // Recorremos el array de divs hijos
+                for (var i = 0; i<arrayDivs.length; i++){
+                    // Si el div es par se muestra con fondo cyan y si es impar rojo
+                    if ((i+1) % 2 == 0){
+                        arrayDivs[i].style.background = "cyan";
+                    }else{
+                        arrayDivs[i].style.background = "red";
+                    }
+                    // Mostramos la posicion del div dentro
+                    arrayDivs[i].innerHTML = i+1;
+                }
+            };
+        </script>
+    </head>
+    <body>
+        <button id="botonCrear" onclick="crearDivs()">Crear</button>
+        <button id="botonPintar">Pintar</button>
+        <div id="padre"></div>
+    </body>
+</html>

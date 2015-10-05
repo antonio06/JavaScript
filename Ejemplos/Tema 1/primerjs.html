@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html lang="">
+<head>
+    <meta charset="UTF-8">
+    <title>Nome do Documento</title>
+	<script>
+    function holaMundo(){
+        //coge el elemento con id mihola para al pulsar sobre el h2 cambie por hola mundo
+        document.getElementById("mihola").innerHTML="Hola Mundo";
+        //muestra en consola 
+        console.log("Cambiado el titulo");
+    }
+    </script>
+</head>
+    
+<body>
+
+<h2 id="mihola">Mi Primer Javascript</h2>    
+<!-- el onclick se utiliza para pulsar una vez sobre el elemento y que haga una cierta función-->
+<button onclick="holaMundo()">Cambiar</button>    
+</body>
+</html>
